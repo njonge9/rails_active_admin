@@ -15,6 +15,10 @@ ActiveAdmin.register Post do
   #   permitted
   # end
 
+  scope :all
+  scope :published
+  scope :unpublished
+
   action_item :publish, only: :show do
     link_to 'Publish', publish_admin_post_path(post), method: :put if !post.published_at?
   end
@@ -24,5 +28,16 @@ ActiveAdmin.register Post do
     post.update(published_at: Time.zone.now)
     redirect_to admin_post_path(post)
   end
+
+  action_item :unpublish, only: :show do
+    link_to 'Unpublish', unpublish_admin_post_path(post), method: :put if post.published_at?
+  end
+
+  member_action :unpublish, method: :put do
+    post = Post.find(params[:id])
+    post.update(published_at: nil)
+    redirect_to admin_post_path(post)
+  end
+
 
 end
