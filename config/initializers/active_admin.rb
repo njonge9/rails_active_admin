@@ -349,4 +349,8 @@ ActiveAdmin.setup do |config|
   # You can switch to using Webpacker here.
   #
   # config.use_webpacker = true
+  def ransackable_associations(auth_object = nil)
+    Rails.logger.info("WITHIN RANSACK ASSOCIATION")
+    super + %w[impressionable]
+  end
 end
