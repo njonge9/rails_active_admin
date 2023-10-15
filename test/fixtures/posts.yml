@@ -3,11 +3,11 @@
 one:
   title: MyString
   body: MyText
-  published_at: 2023-10-14 17:28:01
-  user: one
+  published_at: 2023-10-15 10:50:33
+  account: one
 
 two:
   title: MyString
   body: MyText
-  published_at: 2023-10-14 17:28:01
-  user: two
+  published_at: 2023-10-15 10:50:33
+  account: two
